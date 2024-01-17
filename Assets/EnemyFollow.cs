@@ -16,7 +16,8 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, target.transform.position) > 0.25)
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         LookAt2D(transform, target.transform.position);
     }
     
