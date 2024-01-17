@@ -8,7 +8,7 @@ public class EnemyFollow : MonoBehaviour
     public float speed = 1.5f;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         target = GameManager.Instance.player;
     }
