@@ -18,7 +18,6 @@ public class ChargerFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("TEST");
         _target = GameManager.Instance.player;
     }
 
