@@ -866,33 +866,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2833184212397563124, guid: a9f67016c3f56024baa6f165efd1bd96, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2833184212397563124, guid: a9f67016c3f56024baa6f165efd1bd96, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2833184212397563124, guid: a9f67016c3f56024baa6f165efd1bd96, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6687909221309634211, guid: a9f67016c3f56024baa6f165efd1bd96, type: 3}
       propertyPath: m_Name
       value: Charger
-      objectReference: {fileID: 0}
-    - target: {fileID: 7697707659988565317, guid: a9f67016c3f56024baa6f165efd1bd96, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7697707659988565317, guid: a9f67016c3f56024baa6f165efd1bd96, type: 3}
-      propertyPath: waitTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7697707659988565317, guid: a9f67016c3f56024baa6f165efd1bd96, type: 3}
-      propertyPath: overshoot
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
