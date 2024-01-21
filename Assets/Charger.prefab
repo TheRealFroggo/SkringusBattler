@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2078815547643672102}
   - component: {fileID: 5150105224586205864}
-  - component: {fileID: 970118627484582236}
   - component: {fileID: 7697707659988565317}
+  - component: {fileID: 1740501986566989778}
   m_Layer: 0
   m_Name: Charger
   m_TagString: Untagged
@@ -62,8 +62,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &970118627484582236
-CircleCollider2D:
+--- !u!114 &7697707659988565317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6687909221309634211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be60565f4b3ec8f44a64eaeaf6a26fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  stopDistance: 0.25
+  overshoot: 1.5
+  chargeRate: 1.5
+  smoothTime: 2
+--- !u!70 &1740501986566989778
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,25 +112,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.19
---- !u!114 &7697707659988565317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6687909221309634211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be60565f4b3ec8f44a64eaeaf6a26fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  stopDistance: 0.25
-  overshoot: 1.5
-  chargeRate: 1.5
-  smoothTime: 2
+  m_Size: {x: 0.24809504, y: 0.38671732}
+  m_Direction: 0
 --- !u!1 &9080562726553526651
 GameObject:
   m_ObjectHideFlags: 0
