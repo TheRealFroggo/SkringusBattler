@@ -9,6 +9,11 @@ public class VirusObject : ScriptableObject
     [SerializeField] VirusID VirusID;
     [SerializeField] public Sprite Sprite;
     [SerializeField] public VirusStage[] Stages;
+
+    public VirusID GetVirusID()
+    {
+        return VirusID;
+    }
 }
 
 [System.Serializable]

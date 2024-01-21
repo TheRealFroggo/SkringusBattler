@@ -51,19 +51,43 @@ public class PlayerViruses : MonoBehaviour
     void SimulateViruses()
     {
         Debug.Log("Simulating Viruses");
+
         foreach (Virus virus in Viruses)
         {
             int randomSpread = Random.Range(1, 100);
-            //Debug.Log(virus.GetDisplayName() + " is spreading with " + randomSpread);
             if (randomSpread <
                 virus.CurrentVirus.Stages[virus.CurrentStage].SpreadPercentage)
             {
                 //Spread Virus to nearby cell randdomly
                 Debug.Log(virus.GetDisplayName() + " affecting " + virus.CurrentSlot + " has spread!");
+
+                bool didSpread = false;
+                switch (virus.CurrentSlot)
+                {
+                    case Slots.HEAD:
+                        didSpread = AddVirus(virus, new Slots[1] {Slots.BODY});
+                        break;
+                    case Slots.BODY:
+                        didSpread = AddVirus(virus, new Slots[5] {Slots.HEAD, Slots.SHIELD, Slots.MOTOR, Slots.TREADS, Slots.EMITTER});
+                        break;
+                    case Slots.SHIELD:
+                        didSpread = AddVirus(virus, new Slots[2] {Slots.BODY, Slots.MOTOR});
+                        break;
+                    case Slots.EMITTER:
+                        didSpread = AddVirus(virus, new Slots[2] {Slots.BODY, Slots.TREADS});
+                        break;
+                    case Slots.TREADS:
+                        didSpread = AddVirus(virus, new Slots[3] {Slots.BODY, Slots.EMITTER, Slots.TREADS});
+                        break;
+                    case Slots.MOTOR:
+                        didSpread = AddVirus(virus, new Slots[3] {Slots.BODY, Slots.SHIELD, Slots.TREADS});
+                        break;
+                }
+                if (didSpread)
+                    break;
             }
 
             int randomGrowth = Random.Range(1, 100);
-            //Debug.Log(virus.GetDisplayName() + " is growing with " +randomGrowth);
             if (randomGrowth <
                 virus.CurrentVirus.Stages[virus.CurrentStage].GrowthPercentage)
             {
@@ -72,6 +96,23 @@ public class PlayerViruses : MonoBehaviour
                 virus.CurrentStage++;
             }
         }
+    }
+
+    bool AddVirus(Virus virus, Slots[] spreadableSlots)
+    {
+        Slots newSlot = spreadableSlots[Random.Range(0, spreadableSlots.Length-1)];
+
+        //Check if cell selected already has virus
+        bool shouldSpread = true;
+        foreach (Virus v in Viruses)
+            if (v.CurrentSlot == newSlot && v.CurrentVirus == virus.CurrentVirus)
+                shouldSpread = false;
+
+        //If not, then spread
+        if (shouldSpread)
+            Viruses.Add(new Virus(virus.CurrentVirus.GetVirusID(), 0, newSlot));
+
+        return shouldSpread;
     }
 }
 
@@ -103,11 +144,6 @@ public class Virus
         }
         CurrentStage = stage;
         CurrentSlot = slot;
-    }
-
-    public void IncreaseVirusIntensity()
-    {
-        CurrentStage++;
     }
 
     public string GetDisplayName()
