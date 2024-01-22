@@ -25,7 +25,7 @@ public class WaveManager : MonoBehaviour
     private bool shooterStart = false;
     private bool chargerStart = false;
     private bool spikerStart = false;
-
+    
     void Start()
     {
         _timeElapsed = 0f;
@@ -39,7 +39,9 @@ public class WaveManager : MonoBehaviour
         int minutes = (int)(_timeElapsed / 60 + 0.5);
         droneInterval = (float)(1/(0.4*minutes+0.5));
         shooterInterval = (float)(1/(0.4*minutes));
-
+        chargerInterval = (float)(1/(3*minutes-8.8));
+        spikerInterval = (float)(1/(2*minutes-9.7));
+        
         switch (minutes)
         {
             case 1:
