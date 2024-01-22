@@ -8,7 +8,6 @@ public class DroneFollow : MonoBehaviour
     private GameObject _target;
     public float speed = 1f;
     public float stopDistance = 0.25f;
-    [SerializeField] private float Damage = 10f;
 
     // Start is called before the first frame update
     void Start()
