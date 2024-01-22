@@ -153,7 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1974434325}
-  VirusObjectsList: []
+  VirusObjectsList:
+  - {fileID: 11400000, guid: a155f7af0ebe35e4394afd8186a49efd, type: 2}
+  - {fileID: 11400000, guid: b4e39ff2d3a8dc740a63a0f833a5e32e, type: 2}
+  - {fileID: 11400000, guid: 1dd8e80d310e04946929ddcd43b16e0f, type: 2}
+  - {fileID: 11400000, guid: 5e88787a9dcf812468df66d87f1f58c3, type: 2}
 --- !u!4 &70307124
 Transform:
   m_ObjectHideFlags: 0
@@ -84941,6 +84945,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1974434328}
   - component: {fileID: 1974434327}
+  - component: {fileID: 1974434330}
+  - component: {fileID: 1974434331}
   - component: {fileID: 1974434326}
   m_Layer: 0
   m_Name: Player
@@ -84961,6 +84967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8ba1bb9763a3f41afa42430bfbd54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxSpeed: 5
+  Acceleration: 50
 --- !u!50 &1974434327
 Rigidbody2D:
   serializedVersion: 4
@@ -84974,7 +84982,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
