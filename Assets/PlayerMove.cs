@@ -1,46 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] float MaxSpeed = 3f;
+    [SerializeField] float Acceleration = 3.0f;
+
+    float CurrentSpeed = 0.0f;
+
     private Rigidbody2D _rigidbody2D;
-    private Vector3 _movementVector;
-    private float speed = 3f;
-    // Start is called before the first frame update
+    Vector2 directionVector = Vector2.zero;
+    Vector2 movementVector = Vector2.zero;
+    
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _movementVector = new Vector3();
+        directionVector = new Vector3();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
-        FlipSprite();
+        HandleInput();
+        CalculateVelocity(Time.deltaTime);
     }
     
-    private void PlayerMovement()
+    private void HandleInput()
     {
-        _movementVector.x = Input.GetAxisRaw("Horizontal");
-        _movementVector.y = Input.GetAxisRaw("Vertical");
-        _movementVector = Vector3.Normalize(_movementVector);
+        directionVector.x = Input.GetAxis("Horizontal");
+        directionVector.y = Input.GetAxis("Vertical");
+        directionVector.Normalize();
         
-        _movementVector *= speed;
-        
-
+        //_movementVector *= speed;
         //_animator.SetFloat(Movement, Vector3.Magnitude(_movementVector));
-        _rigidbody2D.velocity = _movementVector;
     }
-    
-    private void FlipSprite()
-    {
-        var runningHorizontally = Mathf.Abs(_rigidbody2D.velocity.x) > Mathf.Epsilon;
 
-        if (runningHorizontally)
-        {
-            transform.localScale = new Vector2(Mathf.Sign(_rigidbody2D.velocity.x), 1);
-        }
+    void CalculateVelocity(float deltaTime)
+    {
+        movementVector += directionVector * (Acceleration * deltaTime);
+        if (movementVector.magnitude > 1.0f)
+            movementVector.Normalize();
+
+        _rigidbody2D.velocity = movementVector;
+
+        Debug.Log("RB Velocity: " + _rigidbody2D.velocity + "\nMovementVector: " + movementVector);
+
+        if (_rigidbody2D.velocity.magnitude >= MaxSpeed)
+            _rigidbody2D.velocity = _rigidbody2D.velocity.normalized * MaxSpeed;
     }
 }
