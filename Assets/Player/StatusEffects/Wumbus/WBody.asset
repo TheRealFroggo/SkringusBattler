@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: WBody
   m_EditorClassIdentifier: 
   Description: Wumbus Body Disease
-  HealthModifier: 0
-  HealthRegenModifier: 0
-  MovementModifier: 0
-  DamageModifier: 0
-  ClickDamangeModifier: 0
-  ProjectileDamageModifier: 0
-  BeamDamageModifier: 0
-  AuraDamageModifier: 0
+  HealthModifier: 10
+  HealthRegenModifier: 10
+  MovementModifier: 10
+  DamageModifier: 10
+  ClickDamangeModifier: 10
+  ProjectileDamageModifier: 10
+  BeamDamageModifier: 10
+  AuraDamageModifier: 10
