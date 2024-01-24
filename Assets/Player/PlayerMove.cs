@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] float speed = 3f;
     private Rigidbody2D _rigidbody2D;
     private Vector3 _movementVector;
-    private float speed = 3f;
-    // Start is called before the first frame update
+    
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _movementVector = new Vector3();
     }
 
-    // Update is called once per frame
     void Update()
     {
         PlayerMovement();
@@ -29,7 +28,6 @@ public class PlayerMove : MonoBehaviour
         
         _movementVector *= speed;
         
-
         //_animator.SetFloat(Movement, Vector3.Magnitude(_movementVector));
         _rigidbody2D.velocity = _movementVector;
     }
@@ -39,8 +37,6 @@ public class PlayerMove : MonoBehaviour
         var runningHorizontally = Mathf.Abs(_rigidbody2D.velocity.x) > Mathf.Epsilon;
 
         if (runningHorizontally)
-        {
             transform.localScale = new Vector2(Mathf.Sign(_rigidbody2D.velocity.x), 1);
-        }
     }
 }
