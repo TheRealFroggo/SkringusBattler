@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMove : MonoBehaviour
+public class PlayerBulletMove : MonoBehaviour
 {
-    private GameObject _target;
-    [SerializeField] public float speed = 5f;
+    [SerializeField] private Camera cam;
     [SerializeField] private float _decayTime = 2f;
-
+    [SerializeField] public float speed = 5f;
     private Vector3 _destination;
     private bool _destSet = false; 
-    
     // Start is called before the first frame update
     void Start()
     {
-        _target = GameManager.Instance.player;
-        
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -23,12 +20,20 @@ public class BulletMove : MonoBehaviour
     {
         if (!_destSet)
         {
-            _destination = _target.transform.position + (_target.transform.position - transform.position) * 10;
+            Vector3 mousePos = GETMousePosition();
+            _destination = mousePos + (mousePos - transform.position) * 10;
             LookAt2D(transform, _destination);
             _destSet = true;
             Destroy(gameObject,_decayTime);
         }
         transform.position = Vector2.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
+    }
+
+    public Vector3 GETMousePosition()
+    {
+        Vector3 screenMousePosition = Input.mousePosition;
+        var mousePosition = cam.ScreenToWorldPoint(screenMousePosition);
+        return mousePosition;
     }
     
     private static void LookAt2D(Transform transform, Vector2 target)
