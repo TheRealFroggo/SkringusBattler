@@ -22,8 +22,7 @@ public class VirusStage
     public string StageName;
     public float SpreadPercentage;
     public float GrowthPercentage;
-    public float BuffMultiplier;
-    public float DeBuffMultiplier;
+    public float Multiplier;
 }
 
 public enum VirusID

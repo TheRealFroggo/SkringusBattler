@@ -158,6 +158,57 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4e39ff2d3a8dc740a63a0f833a5e32e, type: 2}
   - {fileID: 11400000, guid: 1dd8e80d310e04946929ddcd43b16e0f, type: 2}
   - {fileID: 11400000, guid: 5e88787a9dcf812468df66d87f1f58c3, type: 2}
+  StatusDictionary:
+    keys:
+    - BLORCHHEAD
+    - BLORCHBODY
+    - BLORCHSHIELD
+    - BLORCHEMITTER
+    - BLORCHMOTOR
+    - BLORCHTREADS
+    - GUMBOHEAD
+    - GUMBOBODY
+    - GUMBOSHIELD
+    - GUMBOEMITTER
+    - GUMBOMOTOR
+    - GUMBOTREADS
+    - SKRINGUSHEAD
+    - SKRINGUSBODY
+    - SKRINGUSSHIELD
+    - SKRINGUSEMITTER
+    - SKRINGUSMOTOR
+    - SKRINGUSTREADS
+    - WUMBUSHEAD
+    - WUMBUSBODY
+    - WUMBUSSHIELD
+    - WUMBUSEMITTER
+    - WUMBUSMOTOR
+    - WUMBUSTREADS
+    values:
+    - {fileID: 11400000, guid: 75940c2755589a14a9b49c57b0666d42, type: 2}
+    - {fileID: 11400000, guid: 1dd4861e3016ea64d896a157bdcd3934, type: 2}
+    - {fileID: 11400000, guid: 9ca99affd1f1016459c7037f4ca96529, type: 2}
+    - {fileID: 11400000, guid: 6cccfa83c4c6a384ab9b51e053699bed, type: 2}
+    - {fileID: 11400000, guid: 55b7d057895b55d449688471f280de80, type: 2}
+    - {fileID: 11400000, guid: e5b3a2bc756d48444938a670bf2049f0, type: 2}
+    - {fileID: 11400000, guid: 4f5883885041bbc47b65f98754aea831, type: 2}
+    - {fileID: 11400000, guid: 9b238025ae8d2d043b00b4504476f6d0, type: 2}
+    - {fileID: 11400000, guid: 4f482c613a2f9b040bcf171decfbf134, type: 2}
+    - {fileID: 11400000, guid: 9f9aa7f1c7dbe77478fb15c8e15dfb29, type: 2}
+    - {fileID: 11400000, guid: dd7fefb9828405f4d91952046e130ff5, type: 2}
+    - {fileID: 11400000, guid: b11c06f5c1ef259488d8869421a0c158, type: 2}
+    - {fileID: 11400000, guid: eae3001e6c279ff49b76403e6326f8a0, type: 2}
+    - {fileID: 11400000, guid: 576fddda7d3734e45bb6be89d9136eb2, type: 2}
+    - {fileID: 11400000, guid: 1a573ac5500f90f4daa6fb7e92b46b4a, type: 2}
+    - {fileID: 11400000, guid: d7c349e917bf24844944b1148b97e846, type: 2}
+    - {fileID: 11400000, guid: a30662de48387f44a8d40b82e8739460, type: 2}
+    - {fileID: 11400000, guid: 3ac0faf890f049942904204050d152c4, type: 2}
+    - {fileID: 11400000, guid: c46608c16a7c1514abdf22e3ed6eddbf, type: 2}
+    - {fileID: 11400000, guid: 4c85f12f34758884990ee3fe673c70ed, type: 2}
+    - {fileID: 11400000, guid: 347447bcf3ba71f44a821921e779230d, type: 2}
+    - {fileID: 11400000, guid: 7159ae1427b9cfb4ab2821eda8485a8c, type: 2}
+    - {fileID: 11400000, guid: 170e3555e46fd5a4f8a82b9d8dfdaaa7, type: 2}
+    - {fileID: 11400000, guid: 9a88a454a3725e44182188c6d9ffe11a, type: 2}
 --- !u!4 &70307124
 Transform:
   m_ObjectHideFlags: 0
@@ -84948,6 +84999,8 @@ GameObject:
   - component: {fileID: 1974434329}
   - component: {fileID: 1974434330}
   - component: {fileID: 1974434326}
+  - component: {fileID: 1974434331}
+  - component: {fileID: 1974434332}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -84967,7 +85020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8ba1bb9763a3f41afa42430bfbd54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  BaseMoveSpeed: 3
 --- !u!50 &1974434327
 Rigidbody2D:
   serializedVersion: 4
@@ -85039,9 +85092,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f151447727788b4b8ff2b8d15716b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  BaseMaxHealth: 100
   CurrentHealth: 0
-  HealthRegen: 1
+  BaseHealthRegen: 1
+--- !u!114 &1974434331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974434325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def814d48ff950e4f9dc887ce3f04c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseAttackDamage: 10
+  BaseClickDamage: 1
+  BaseProjectileDamage: 1
+  BaseBeamDamage: 1
+  BaseAuraDamage: 1
+--- !u!114 &1974434332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974434325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fd241699ab54e47a0e2e53ba362e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

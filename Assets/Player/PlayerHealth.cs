@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int MaxHealth;
+    [SerializeField] int BaseMaxHealth;
     [SerializeField] int CurrentHealth;
-    [SerializeField] int HealthRegen;
+    [SerializeField] int BaseHealthRegen;
+    int CurrentMaxHealth;
+    int CurrentHealthRegen;
 
     float HealthRegenTimer = 0.0f;
 
-    void Start()
+    void Awake()
     {
-        CurrentHealth = MaxHealth;
+        CurrentMaxHealth = BaseMaxHealth;
+        CurrentHealth = CurrentMaxHealth;
+
+        CurrentHealthRegen = BaseHealthRegen;
     }
 
     void Update()
@@ -31,10 +36,33 @@ public class PlayerHealth : MonoBehaviour
         if (HealthRegenTimer >= 1.0f)
         {
             HealthRegenTimer = 0.0f;
-            CurrentHealth += HealthRegen;
-            if (CurrentHealth >= MaxHealth)
-                CurrentHealth = MaxHealth;
+            CurrentHealth += CurrentHealthRegen;
+
+            if (CurrentHealth >= CurrentMaxHealth)
+                CurrentHealth = CurrentMaxHealth;
         }
+    }
+
+    public int GetBaseMaxHealth()
+    {
+        return BaseMaxHealth;
+    }
+
+    public int GetBaseMaxHealthRegen()
+    {
+        return BaseHealthRegen;
+    }
+
+    public void SetNewMaxHealth(int i)
+    {
+        CurrentMaxHealth = i;
+        Debug.Log("New Max Health: " + CurrentMaxHealth);
+    }
+
+    public void SetNewMaxHealthRegen(int i)
+    {
+        CurrentHealthRegen = i;
+        Debug.Log("New Health Regen: " + CurrentHealthRegen);
     }
 
     void PlayerDied()

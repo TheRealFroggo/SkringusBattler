@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea292cfbc30ba014e8a3dd278f2e2730, type: 3}
+  m_Name: GHead
+  m_EditorClassIdentifier: 
+  Description: 
+  HealthModifier: 0
+  HealthRegenModifier: 0
+  MovementModifier: 0
+  DamageModifier: 0
+  ClickDamangeModifier: 0
+  ProjectileDamageModifier: 0
+  BeamDamageModifier: 0
+  AuraDamageModifier: 0
