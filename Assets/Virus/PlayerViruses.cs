@@ -15,16 +15,14 @@ public class PlayerViruses : MonoBehaviour
     {
         //Add a random Virus to the Body
         VirusID startingBodyVirus = (VirusID)Random.Range(0, 3);
-        Viruses.Add(new Virus(startingBodyVirus, 1, Slots.BODY));
-        Debug.Log(Viruses[0].GetDisplayName() + " is affecting " + Slots.BODY);
+        AddVirus(startingBodyVirus, Slots.BODY);
 
         //Add another random virus somewhere else
         VirusID startingRandVirus = (VirusID)Random.Range(0, 3);
         Slots startingSlot = (Slots)Random.Range(0, 5);
         while (startingSlot == Slots.BODY)
             startingSlot = (Slots)Random.Range(0, 5);
-        Viruses.Add(new Virus(startingRandVirus, 0, startingSlot));
-        Debug.Log(Viruses[1].GetDisplayName() + " is affecting " + startingSlot);
+        AddVirus(startingRandVirus, startingSlot);
     }
 
     void Update()
@@ -65,22 +63,22 @@ public class PlayerViruses : MonoBehaviour
                 switch (virus.CurrentSlot)
                 {
                     case Slots.HEAD:
-                        didSpread = AddVirus(virus, new Slots[1] {Slots.BODY});
+                        didSpread = CheckAddVirus(virus, new Slots[1] {Slots.BODY});
                         break;
                     case Slots.BODY:
-                        didSpread = AddVirus(virus, new Slots[5] {Slots.HEAD, Slots.SHIELD, Slots.MOTOR, Slots.TREADS, Slots.EMITTER});
+                        didSpread = CheckAddVirus(virus, new Slots[5] {Slots.HEAD, Slots.SHIELD, Slots.MOTOR, Slots.TREADS, Slots.EMITTER});
                         break;
                     case Slots.SHIELD:
-                        didSpread = AddVirus(virus, new Slots[2] {Slots.BODY, Slots.MOTOR});
+                        didSpread = CheckAddVirus(virus, new Slots[2] {Slots.BODY, Slots.MOTOR});
                         break;
                     case Slots.EMITTER:
-                        didSpread = AddVirus(virus, new Slots[2] {Slots.BODY, Slots.TREADS});
+                        didSpread = CheckAddVirus(virus, new Slots[2] {Slots.BODY, Slots.TREADS});
                         break;
                     case Slots.TREADS:
-                        didSpread = AddVirus(virus, new Slots[3] {Slots.BODY, Slots.EMITTER, Slots.TREADS});
+                        didSpread = CheckAddVirus(virus, new Slots[3] {Slots.BODY, Slots.EMITTER, Slots.TREADS});
                         break;
                     case Slots.MOTOR:
-                        didSpread = AddVirus(virus, new Slots[3] {Slots.BODY, Slots.SHIELD, Slots.TREADS});
+                        didSpread = CheckAddVirus(virus, new Slots[3] {Slots.BODY, Slots.SHIELD, Slots.TREADS});
                         break;
                 }
                 if (didSpread)
@@ -98,7 +96,15 @@ public class PlayerViruses : MonoBehaviour
         }
     }
 
-    bool AddVirus(Virus virus, Slots[] spreadableSlots)
+    bool AddVirus(VirusID virus, Slots slot)
+    {
+        Viruses.Add(new Virus(virus, 0, slot));
+        GetComponent<PlayerStatusEffects>().AddStatusEffect(virus, slot);
+
+        return true;
+    }
+
+    bool CheckAddVirus(Virus virus, Slots[] spreadableSlots)
     {
         Slots newSlot = spreadableSlots[Random.Range(0, spreadableSlots.Length-1)];
 
@@ -110,9 +116,20 @@ public class PlayerViruses : MonoBehaviour
 
         //If not, then spread
         if (shouldSpread)
-            Viruses.Add(new Virus(virus.CurrentVirus.GetVirusID(), 0, newSlot));
-
+            AddVirus(virus.CurrentVirus.GetVirusID(), newSlot);
         return shouldSpread;
+    }
+
+    public Virus FindVirus(VirusID vir, Slots slot)
+    {
+        Virus virus;
+        foreach (Virus v in Viruses)
+            if (v.CurrentSlot == slot && v.CurrentVirus.GetVirusID() == vir)
+            {
+                virus = v;
+                return virus;
+            }
+        return null;
     }
 }
 

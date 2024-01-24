@@ -18,15 +18,12 @@ MonoBehaviour:
   - StageName: Minor
     SpreadPercentage: 3
     GrowthPercentage: 5
-    BuffMultiplier: 1
-    DeBuffMultiplier: 1
+    Multiplier: 1.5
   - StageName: Major
     SpreadPercentage: 7
     GrowthPercentage: 7
-    BuffMultiplier: 1.05
-    DeBuffMultiplier: 1.1
+    Multiplier: 0
   - StageName: Severe
     SpreadPercentage: 15
     GrowthPercentage: 0
-    BuffMultiplier: 1.2
-    DeBuffMultiplier: 1.5
+    Multiplier: 0
