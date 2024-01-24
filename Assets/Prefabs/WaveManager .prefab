@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4041264516845945031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4640888352219202610}
+  - component: {fileID: 4568221451580998247}
+  m_Layer: 0
+  m_Name: 'WaveManager '
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4640888352219202610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041264516845945031}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4568221451580998247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041264516845945031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2b98fa4dfb7804c90d37958ec4730d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  dronePrefab: {fileID: 3826505474262037286, guid: 494cf4ecf9576df4bb84f1b6ba829179, type: 3}
+  chargerPrefab: {fileID: 6687909221309634211, guid: a9f67016c3f56024baa6f165efd1bd96, type: 3}
+  shooterPrefab: {fileID: 7568481764992968875, guid: 58c49b26902bd094e90f21005a1ac1fc, type: 3}
+  spikerPrefab: {fileID: 4280176140067359319, guid: c5915202554b6ce4a8d07bd1e635f138, type: 3}
+  droneInterval: 2
+  chargerInterval: 2
+  shooterInterval: 2
+  spikerInterval: 2
+  spawnRange: 10
