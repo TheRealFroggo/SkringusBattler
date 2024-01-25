@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 5388162873756526532}
   - component: {fileID: 6371872047068408211}
   - component: {fileID: 4427013080993956861}
+  - component: {fileID: 5044074423294859917}
   m_Layer: 0
   m_Name: Spiker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,6 +118,20 @@ MonoBehaviour:
   stopDistance: 0.25
   flightDirection: 1
   flightChangeRate: 1
+--- !u!114 &5044074423294859917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280176140067359319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9e201494edf6b49aae14e8b5dcb236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 10
+  Points: 0
 --- !u!1 &5821581363754986926
 GameObject:
   m_ObjectHideFlags: 0

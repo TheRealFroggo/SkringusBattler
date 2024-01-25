@@ -42,11 +42,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8436139087875642275}
   - component: {fileID: 3364920227423436589}
-  - component: {fileID: 798644551610998485}
   - component: {fileID: 7258902873523938521}
+  - component: {fileID: 798644551610998485}
+  - component: {fileID: 8011058770671625845}
   m_Layer: 0
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,21 +95,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &798644551610998485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3826505474262037286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3183097ae2721a94394fe360bd56f207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  stopDistance: 0.25
-  Damage: 10
 --- !u!58 &7258902873523938521
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -144,6 +130,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.19
+--- !u!114 &798644551610998485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826505474262037286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3183097ae2721a94394fe360bd56f207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  stopDistance: 0.25
+--- !u!114 &8011058770671625845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826505474262037286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9e201494edf6b49aae14e8b5dcb236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 10
+  Points: 0
 --- !u!1 &7034774264021418849
 GameObject:
   m_ObjectHideFlags: 0
