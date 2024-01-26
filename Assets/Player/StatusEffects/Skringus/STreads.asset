@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea292cfbc30ba014e8a3dd278f2e2730, type: 3}
   m_Name: STreads
   m_EditorClassIdentifier: 
-  Description: 
+  Description: Speed-, Damage++, FireRate+, ProjSize+
   HealthModifier: 0
   HealthRegenModifier: 0
   MovementModifier: -0.25

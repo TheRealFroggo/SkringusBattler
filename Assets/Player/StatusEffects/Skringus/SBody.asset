@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea292cfbc30ba014e8a3dd278f2e2730, type: 3}
   m_Name: SBody
   m_EditorClassIdentifier: 
-  Description: Skringus Body Disease
+  Description: Damage+++. ProjSize+, ProjLifeSpan-
   HealthModifier: 0
   HealthRegenModifier: 0
   MovementModifier: 0
