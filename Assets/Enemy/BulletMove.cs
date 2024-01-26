@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
+    //BULLET CODE FOR SHOOTER
     private GameObject _target;
     [SerializeField] public float speed = 5f;
     [SerializeField] private float _decayTime = 2f;
@@ -23,7 +24,7 @@ public class BulletMove : MonoBehaviour
     {
         if (!_destSet)
         {
-            _destination = _target.transform.position + (_target.transform.position - transform.position) * 10;
+            _destination = _target.transform.position + (_target.transform.position - transform.position)*10;
             LookAt2D(transform, _destination);
             _destSet = true;
             Destroy(gameObject,_decayTime);

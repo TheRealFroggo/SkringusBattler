@@ -24,7 +24,7 @@ public class PlayerBulletMove : MonoBehaviour
         if (!_destSet)
         {
             Vector3 mousePos = GETMousePosition();
-            _destination = mousePos + (mousePos - transform.position) * 10;
+            _destination = mousePos + (mousePos - transform.position) * 9999;
             LookAt2D(transform, _destination);
             _destSet = true;
             Destroy(gameObject,LifeSpan);

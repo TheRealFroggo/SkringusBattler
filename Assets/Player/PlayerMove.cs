@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Vector3 _movementVector;
     float CurrentMoveSpeed;
+    public bool isMoving;
     
     void Start()
     {
@@ -32,6 +33,8 @@ public class PlayerMove : MonoBehaviour
         _movementVector *= CurrentMoveSpeed;
         
         //_animator.SetFloat(Movement, Vector3.Magnitude(_movementVector));
+        isMoving = !(_movementVector == Vector3.zero);
+            
         _rigidbody2D.velocity = _movementVector;
     }
     

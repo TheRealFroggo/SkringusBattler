@@ -17,9 +17,9 @@ MonoBehaviour:
   HealthRegenModifier: 10
   MovementModifier: 2
   DamageModifier: 10
-  FireRateModifier: 20
-  ProjectileSizeModifier: 20
-  ProjectileSpeedModifier: 20
-  ProjectilePierceModifier: 20
-  ProjectileCountModifier: 20
-  ProjectileLifeSpanModifier: 20
+  FireRateModifier: 3
+  ProjectileSizeModifier: 1
+  ProjectileSpeedModifier: 3
+  ProjectilePierceModifier: 3
+  ProjectileCountModifier: 3
+  ProjectileLifeSpanModifier: 3
