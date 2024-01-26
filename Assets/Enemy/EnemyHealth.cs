@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float MaxHealth;
     [SerializeField] float Points;
+    [SerializeField] private ParticleSystem DeathAnim;
     float CurrentHealth;
 
     void Start()
@@ -21,7 +22,12 @@ public class EnemyHealth : MonoBehaviour
     void CheckHealth()
     {
         if (CurrentHealth <= 0.0f)
-            Destroy(gameObject);
+        {
+            GameObject explode = Instantiate(DeathAnim.gameObject, transform.position, Quaternion.identity);
+            Destroy(explode, 1f);
+            Destroy(gameObject); 
+        }
+            
     }
 
     void OnTriggerEnter2D(Collider2D other)

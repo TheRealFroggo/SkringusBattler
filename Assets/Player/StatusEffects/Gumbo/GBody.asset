@@ -15,7 +15,7 @@ MonoBehaviour:
   Description: Gumbo Body Disease
   HealthModifier: 10
   HealthRegenModifier: 10
-  MovementModifier: 10
+  MovementModifier: 2
   DamageModifier: 10
   ClickDamangeModifier: 10
   ProjectileDamageModifier: 10

@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 10
   Points: 0
+  DeathAnim: {fileID: 7951919278807999414, guid: 80b5dc4bae0e0dd4f915c6f23561be85, type: 3}
 --- !u!1 &9080562726553526651
 GameObject:
   m_ObjectHideFlags: 0

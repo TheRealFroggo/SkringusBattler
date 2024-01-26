@@ -9,7 +9,6 @@ public class TabMenu : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera vcam;
     [SerializeField] private float camDist = 4f;
     [SerializeField] private float zoomAmount = 0.25f;
-    //TODO even if set to 0 this is not pausing???????
     [SerializeField] private float slowAmount = 0f;
     private bool isSlow = false;
 
