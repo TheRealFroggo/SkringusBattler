@@ -10,8 +10,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float CurrentMoveSpeed;
     private Rigidbody2D _rigidbody2D;
     private Vector3 _movementVector;
-
-    float CurrentMoveSpeed;
+    
     public bool isMoving;
     
     void Start()

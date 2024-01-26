@@ -246,6 +246,7 @@ MonoBehaviour:
   PlayerSlots: 000000000100000002000000030000000400000005000000
   Viruses: []
   VirusTickRate: 5
+  VirusChanceDamage: 20
 --- !u!114 &3965349834025656281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +260,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseMaxHealth: 100
-  CurrentHealth: 0
   BaseHealthRegen: 1
+  CurrentMaxHealth: 0
+  CurrentHealthRegen: 0
+  CurrentHealth: 0
 --- !u!114 &2190617034910696275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseMoveSpeed: 3
+  CurrentMoveSpeed: 0
   isMoving: 0
 --- !u!114 &3676302928631240737
 MonoBehaviour:
@@ -300,13 +304,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBulletPrefab: {fileID: 195122308505228084, guid: 74795a4059b1e024c9debbfa1cc2b4e4, type: 3}
-  BaseDamage: 0
-  BaseFireRate: 0
-  BaseProjectileSize: 0
-  BaseProjectileSpeed: 0
-  BaseProjectilePierce: 0
-  BaseProjectileCount: 0
-  BaseProjectileLifeSpan: 0
+  BaseDamage: 2
+  BaseFireRate: 1
+  BaseProjectileSize: 1
+  BaseProjectileSpeed: 3
+  BaseProjectilePierce: 1
+  BaseProjectileCount: 1
+  BaseProjectileLifeSpan: 1
+  CurrentDamage: 0
+  CurrentFireRate: 0
+  CurrentProjectileSize: 0
+  CurrentProjectileSpeed: 0
+  CurrentProjectilePierce: 0
+  CurrentProjectileCount: 0
+  CurrentProjectileLifeSpan: 0
 --- !u!1 &7419534389737156454
 GameObject:
   m_ObjectHideFlags: 0
