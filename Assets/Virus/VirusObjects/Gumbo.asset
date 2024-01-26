@@ -17,9 +17,9 @@ MonoBehaviour:
   Stages:
   - StageName: Minor
     SpreadPercentage: 5
-    GrowthPercentage: 2
+    GrowthPercentage: 1
     Multiplier: 1.5
   - StageName: Severe
     SpreadPercentage: 15
     GrowthPercentage: 0
-    Multiplier: 0
+    Multiplier: 3

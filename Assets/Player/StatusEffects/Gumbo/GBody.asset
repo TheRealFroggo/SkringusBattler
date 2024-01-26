@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: GBody
   m_EditorClassIdentifier: 
   Description: Gumbo Body Disease
-  HealthModifier: 10
-  HealthRegenModifier: 10
-  MovementModifier: 2
-  DamageModifier: 10
-  FireRateModifier: 2
-  ProjectileSizeModifier: 1
-  ProjectileSpeedModifier: 2
+  HealthModifier: 0
+  HealthRegenModifier: 0
+  MovementModifier: 0
+  DamageModifier: 0
+  FireRateModifier: 0
+  ProjectileSizeModifier: 1.5
+  ProjectileSpeedModifier: 0
   ProjectilePierceModifier: 2
-  ProjectileCountModifier: 2
+  ProjectileCountModifier: 0
   ProjectileLifeSpanModifier: 0

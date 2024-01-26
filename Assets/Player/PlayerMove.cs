@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [Header("Base Stats")]
     [SerializeField] float BaseMoveSpeed = 3f;
+    [Header("Current Stats")]
+    [SerializeField] float CurrentMoveSpeed;
     private Rigidbody2D _rigidbody2D;
     private Vector3 _movementVector;
+
     float CurrentMoveSpeed;
     public bool isMoving;
     

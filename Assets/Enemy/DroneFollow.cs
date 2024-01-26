@@ -18,9 +18,12 @@ public class DroneFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, _target.transform.position) > stopDistance)
-            transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, speed * Time.deltaTime);
-        LookAt2D(transform, _target.transform.position);
+        if (_target != null)
+        {
+            if (Vector2.Distance(transform.position, _target.transform.position) > stopDistance)
+                transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, speed * Time.deltaTime);
+            LookAt2D(transform, _target.transform.position);
+        }
     }
     
     private static void LookAt2D(Transform transform, Vector2 target)

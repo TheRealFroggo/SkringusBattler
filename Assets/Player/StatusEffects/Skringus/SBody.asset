@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: SBody
   m_EditorClassIdentifier: 
   Description: Skringus Body Disease
-  HealthModifier: 10
-  HealthRegenModifier: 10
-  MovementModifier: 2
+  HealthModifier: 0
+  HealthRegenModifier: 0
+  MovementModifier: 0
   DamageModifier: 10
-  FireRateModifier: 3
-  ProjectileSizeModifier: 1
-  ProjectileSpeedModifier: 3
-  ProjectilePierceModifier: 3
-  ProjectileCountModifier: 3
-  ProjectileLifeSpanModifier: 3
+  FireRateModifier: 0
+  ProjectileSizeModifier: 2
+  ProjectileSpeedModifier: 0
+  ProjectilePierceModifier: 0
+  ProjectileCountModifier: 0
+  ProjectileLifeSpanModifier: -0.25
+

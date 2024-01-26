@@ -26,8 +26,8 @@ MonoBehaviour:
   - StageName: Major
     SpreadPercentage: 12
     GrowthPercentage: 12
-    Multiplier: 0
+    Multiplier: 2
   - StageName: Catastrophic
     SpreadPercentage: 25
     GrowthPercentage: 0
-    Multiplier: 0
+    Multiplier: 2.5

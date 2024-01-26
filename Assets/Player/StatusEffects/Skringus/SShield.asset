@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: SShield
   m_EditorClassIdentifier: 
   Description: 
-  HealthModifier: 0
-  HealthRegenModifier: 0
-  MovementModifier: 0
-  DamageModifier: 0
-  ClickDamangeModifier: 0
-  ProjectileDamageModifier: 0
-  BeamDamageModifier: 0
-  AuraDamageModifier: 0
+  HealthModifier: -1
+  HealthRegenModifier: 0.25
+  MovementModifier: -0.25
+  DamageModifier: 5
+  FireRateModifier: -0.25
+  ProjectileSizeModifier: 0.25
+  ProjectileSpeedModifier: 0.25
+  ProjectilePierceModifier: 1
+  ProjectileCountModifier: 0
+  ProjectileLifeSpanModifier: 0

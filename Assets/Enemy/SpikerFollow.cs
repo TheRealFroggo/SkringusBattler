@@ -21,19 +21,20 @@ public class SpikerFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, _target.transform.position) > stopDistance)
+        if (_target != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _target.transform.position + transform.right * 3f * flightDirection, speed * Time.deltaTime);
-        }
+            if (Vector2.Distance(transform.position, _target.transform.position) > stopDistance)
+                transform.position = Vector2.MoveTowards(transform.position, _target.transform.position + transform.right * 3f * flightDirection, speed * Time.deltaTime);
 
-        if (nextFlightChange < Time.time)
-        {
-            flightDirection *= -1;
-            flightChangeRate = Random.Range(0.1f, 0.5f);
-            nextFlightChange = Time.time + flightChangeRate;
-        }
+            if (nextFlightChange < Time.time)
+            {
+                flightDirection *= -1;
+                flightChangeRate = Random.Range(0.1f, 0.5f);
+                nextFlightChange = Time.time + flightChangeRate;
+            }
             
-        LookAt2D(transform, _target.transform.position);
+            LookAt2D(transform, _target.transform.position);
+        }
     }
     
     private static void LookAt2D(Transform transform, Vector2 target)

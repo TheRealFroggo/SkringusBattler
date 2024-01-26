@@ -8,6 +8,7 @@ public class PlayerViruses : MonoBehaviour
     [SerializeField] List<Slots> PlayerSlots;
     [SerializeField] List<Virus> Viruses;
     [SerializeField] float VirusTickRate;
+    [SerializeField] int VirusChanceDamage;
 
     float VirusTickRateTimer = 0.0f;
 
@@ -130,6 +131,25 @@ public class PlayerViruses : MonoBehaviour
                 return virus;
             }
         return null;
+    }
+
+    public void AddRandomVirus()
+    {
+        if (VirusChanceDamage >= Random.Range(1, 100))
+        {
+            VirusID virus = (VirusID)Random.Range(0, 3);
+            Slots slot = (Slots)Random.Range(0, 5);
+
+            bool isExist = false;
+            foreach (Virus v in Viruses)
+            {
+                if (virus == v.CurrentVirus.GetVirusID() && slot == v.CurrentSlot)
+                    isExist = true;
+            }
+
+            if(!isExist)
+                AddVirus(virus, slot);
+        }
     }
 }
 

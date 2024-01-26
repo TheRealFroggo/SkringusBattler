@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,9 +12,11 @@ using UnityEditorInternal;
 
 public class GameManager : MonoBehaviour
 {
+    int Score;
     public GameObject player;
     private static GameManager _instance;
     [SerializeField] private List<VirusObject> VirusObjectsList;
+    [SerializeField] GameObject GameOver;
 
     [UDictionary.Split(70, 30)]
     [SerializeField] UDictionary1 StatusDictionary;
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
-        //Debug.Log(_instance.name);
+        Score = 0;
     }
 
     public VirusObject GetVirusObject(int id)
@@ -44,5 +48,25 @@ public class GameManager : MonoBehaviour
     public StatusEffectData GetStatusEffect(string slot)
     {
         return StatusDictionary[slot];
+    }
+
+    public void AddScore(int i)
+    {
+        Score += i;
+    }
+
+    public int GetScore()
+    {
+        return Score;
+    }
+
+    public void EndGame()
+    {
+        GameOver.SetActive(true);
+    }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene("SceneAidan");
     }
 }

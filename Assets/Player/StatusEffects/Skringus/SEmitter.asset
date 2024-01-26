@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: SEmitter
   m_EditorClassIdentifier: 
   Description: 
-  HealthModifier: 0
+  HealthModifier: -10
   HealthRegenModifier: 0
-  MovementModifier: 0
-  DamageModifier: 0
-  ClickDamangeModifier: 0
-  ProjectileDamageModifier: 0
-  BeamDamageModifier: 0
-  AuraDamageModifier: 0
+  MovementModifier: -0.25
+  DamageModifier: 5
+  FireRateModifier: -0.5
+  ProjectileSizeModifier: 0
+  ProjectileSpeedModifier: 0
+  ProjectilePierceModifier: 0
+  ProjectileCountModifier: 0
+  ProjectileLifeSpanModifier: 0

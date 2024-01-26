@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Base Stats")]
     [SerializeField] int BaseMaxHealth;
-    [SerializeField] int CurrentHealth;
     [SerializeField] int BaseHealthRegen;
-    int CurrentMaxHealth;
-    int CurrentHealthRegen;
+    [Header("Current Stats")]
+    [SerializeField] int CurrentMaxHealth;
+    [SerializeField] int CurrentHealthRegen;
+    [SerializeField] int CurrentHealth;
 
     float HealthRegenTimer = 0.0f;
 
@@ -65,8 +67,15 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("New Health Regen: " + CurrentHealthRegen);
     }
 
+    public void DealDamage(int i)
+    {
+        CurrentHealth -= i;
+        GetComponent<PlayerViruses>().AddRandomVirus();
+    }
+
     void PlayerDied()
     {
-        //Handle Player death and Restart game.
+        GameManager.Instance.EndGame();
+        Destroy(gameObject);
     }
 }

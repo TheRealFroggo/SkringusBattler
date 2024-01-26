@@ -18,12 +18,12 @@ MonoBehaviour:
   - StageName: Minor
     SpreadPercentage: 1
     GrowthPercentage: 3
-    Multiplier: 1.5
+    Multiplier: 1.1
   - StageName: Potent
     SpreadPercentage: 1
     GrowthPercentage: 5
-    Multiplier: 0
+    Multiplier: 1.25
   - StageName: Nuclear
     SpreadPercentage: 20
     GrowthPercentage: 0
-    Multiplier: 0
+    Multiplier: 1.5

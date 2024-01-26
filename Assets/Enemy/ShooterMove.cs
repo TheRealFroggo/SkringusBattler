@@ -21,26 +21,24 @@ public class ShooterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, _target.transform.position) > stopDistance)
+        if (_target != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, speed * Time.deltaTime);
-        }else if (Vector2.Distance(transform.position, _target.transform.position) < stopDistance*0.75f)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, -speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, (transform.position + transform.right * flightDirection - transform.forward), speed * Time.deltaTime);
-        }
+            if (Vector2.Distance(transform.position, _target.transform.position) > stopDistance)
+                transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, speed * Time.deltaTime);
+            else if (Vector2.Distance(transform.position, _target.transform.position) < stopDistance*0.75f)
+                transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, -speed * Time.deltaTime);
+            else
+                transform.position = Vector2.MoveTowards(transform.position, (transform.position + transform.right * flightDirection - transform.forward), speed * Time.deltaTime);
 
-        if (nextFlightChange < Time.time)
-        {
-            flightDirection *= -1;
-            flightChangeRate = Random.Range(1f, 10f);
-            nextFlightChange = Time.time + flightChangeRate;
-        }
+            if (nextFlightChange < Time.time)
+            {
+                flightDirection *= -1;
+                flightChangeRate = Random.Range(1f, 10f);
+                nextFlightChange = Time.time + flightChangeRate;
+            }
             
-        LookAt2D(transform, _target.transform.position);
+            LookAt2D(transform, _target.transform.position);
+        }
     }
     
     private static void LookAt2D(Transform transform, Vector2 target)

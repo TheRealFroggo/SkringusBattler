@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: WBody
   m_EditorClassIdentifier: 
   Description: Wumbus Body Disease
-  HealthModifier: 10
-  HealthRegenModifier: 10
-  MovementModifier: 2
-  DamageModifier: 10
-  FireRateModifier: 1
-  ProjectileSizeModifier: 1
-  ProjectileSpeedModifier: 1
-  ProjectilePierceModifier: 1
-  ProjectileCountModifier: 1
-  ProjectileLifeSpanModifier: 1
+  HealthModifier: 50
+  HealthRegenModifier: 6
+  MovementModifier: 0.1
+  DamageModifier: -2
+  FireRateModifier: 0
+  ProjectileSizeModifier: 0
+  ProjectileSpeedModifier: 0
+  ProjectilePierceModifier: 0
+  ProjectileCountModifier: 0
+  ProjectileLifeSpanModifier: 0
