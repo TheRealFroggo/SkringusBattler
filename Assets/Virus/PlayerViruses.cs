@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerViruses : MonoBehaviour
 {
     [SerializeField] List<Slots> PlayerSlots;
-    [SerializeField] List<Virus> Viruses;
+    [SerializeField] public List<Virus> Viruses;
     [SerializeField] float VirusTickRate;
     [SerializeField] int VirusChanceDamage;
 

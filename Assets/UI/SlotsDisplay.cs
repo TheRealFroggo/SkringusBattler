@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SlotsDisplay : MonoBehaviour
@@ -16,11 +17,13 @@ public class SlotsDisplay : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GetComponentInParent<SlotSelector>().ActiveDisplaySlot = DisplaySlot;
-            isEnabled = !isEnabled;
-        }
+        GetComponentInParent<SlotSelector>().ActiveDisplaySlot = DisplaySlot;
+        isEnabled = true;
+    }
+
+    void OnMouseExit()
+    {
+        isEnabled = false;
     }
 
     void OnEnable()
