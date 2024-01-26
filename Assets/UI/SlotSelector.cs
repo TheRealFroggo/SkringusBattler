@@ -26,8 +26,10 @@ public class SlotSelector : MonoBehaviour
             {
                 string virusSlot = virus.CurrentVirus.GetVirusID().ToString() + ActiveDisplaySlot.ToString();
                 StatusEffectData effect = GameManager.Instance.GetStatusEffect(virusSlot);
-
-                displayText += virus.CurrentVirus.GetVirusID().ToString() + "\n" + effect.Description + "\n";
+                VirusObject vObj = GameManager.Instance.GetVirusObject((int)virus.CurrentVirus.GetVirusID());
+                string potency = vObj.Stages[virus.CurrentStage].StageName.ToUpper();
+                string vName = virus.CurrentVirus.GetVirusID().ToString();
+                displayText += potency + " " + vName + "\n" + effect.Description + "\n";
             }
         }
 
