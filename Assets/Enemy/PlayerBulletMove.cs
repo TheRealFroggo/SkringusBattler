@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PlayerBulletMove : MonoBehaviour
 {
-    [SerializeField] private Camera cam;
-    [SerializeField] private float _decayTime = 2f;
-    [SerializeField] public float speed = 5f;
+    Camera cam;
+    float Size;
+    float Speed;
+    float LifeSpan;
+
     private Vector3 _destination;
     private bool _destSet = false; 
-    // Start is called before the first frame update
+    
     void Start()
     {
         cam = Camera.main;
+        transform.localScale = new Vector3(Size, Size, 0);
     }
 
     // Update is called once per frame
@@ -24,9 +27,9 @@ public class PlayerBulletMove : MonoBehaviour
             _destination = mousePos + (mousePos - transform.position) * 10;
             LookAt2D(transform, _destination);
             _destSet = true;
-            Destroy(gameObject,_decayTime);
+            Destroy(gameObject,LifeSpan);
         }
-        transform.position = Vector2.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, _destination, Speed * Time.deltaTime);
     }
 
     public Vector3 GETMousePosition()
@@ -42,5 +45,20 @@ public class PlayerBulletMove : MonoBehaviour
         var direction = target - current;
         var angle = Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg - 90;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    public void SetSize(float i)
+    {
+        Size = i;
+    }
+
+    public void SetSpeed(float i)
+    {
+        Speed = i;
+    }
+
+    public void SetLifeSpan(float i)
+    {
+        LifeSpan = i;
     }
 }

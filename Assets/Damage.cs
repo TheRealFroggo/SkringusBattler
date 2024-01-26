@@ -4,19 +4,8 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    [SerializeField] float BaseDamage;
-    [SerializeField] int Pierce;
-    float CurrentDamage;
-
-    void Start()
-    {
-        CurrentDamage = BaseDamage;
-    }
-
-    public float GetDamage()
-    {
-        return CurrentDamage;
-    }
+    float AttackDamage;
+    float Pierce;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,5 +16,20 @@ public class Damage : MonoBehaviour
             if (Pierce <= 0)
                 Destroy(gameObject);
         }
+    }
+
+    public void SetNewDamage(float i)
+    {
+        AttackDamage = i;
+    }
+
+    public float GetDamage()
+    {
+        return AttackDamage;
+    }
+
+    public void SetNewPierce(float i)
+    {
+        Pierce = i;
     }
 }

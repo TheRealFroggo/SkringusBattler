@@ -13,8 +13,10 @@ public class StatusEffectData : ScriptableObject
     public float MovementModifier;
     [Header("Damage")]
     public float DamageModifier;
-    public float ClickDamangeModifier;
-    public float ProjectileDamageModifier;
-    public float BeamDamageModifier;
-    public float AuraDamageModifier;
+    public float FireRateModifier;
+    public float ProjectileSizeModifier;
+    public float ProjectileSpeedModifier;
+    public int ProjectilePierceModifier;
+    public int ProjectileCountModifier;
+    public float ProjectileLifeSpanModifier;
 }

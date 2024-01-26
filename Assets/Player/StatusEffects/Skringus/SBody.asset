@@ -17,7 +17,9 @@ MonoBehaviour:
   HealthRegenModifier: 10
   MovementModifier: 10
   DamageModifier: 10
-  ClickDamangeModifier: 10
-  ProjectileDamageModifier: 10
-  BeamDamageModifier: 10
-  AuraDamageModifier: 10
+  FireRateModifier: 20
+  ProjectileSizeModifier: 20
+  ProjectileSpeedModifier: 20
+  ProjectilePierceModifier: 20
+  ProjectileCountModifier: 20
+  ProjectileLifeSpanModifier: 20

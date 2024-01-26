@@ -9,10 +9,12 @@ public class PlayerStatusEffects : MonoBehaviour
     Dictionary<string, float> HealthRegenModifiers;
     Dictionary<string, float> MovementModifiers;
     Dictionary<string, float> DamageModifiers;
-    Dictionary<string, float> ClickDamangeModifiers;
-    Dictionary<string, float> ProjectileDamageModifiers;
-    Dictionary<string, float> BeamDamageModifiers;
-    Dictionary<string, float> AuraDamageModifiers;
+    Dictionary<string, float> FireRateModifiers;
+    Dictionary<string, float> ProjectileSizeModifiers;
+    Dictionary<string, float> ProjectileSpeedModifiers;
+    Dictionary<string, float> ProjectilePierceModifiers;
+    Dictionary<string, float> ProjectileCountModifiers;
+    Dictionary<string, float> ProjectileLifeSpanModifiers;
 
     void Start()
     {
@@ -20,10 +22,12 @@ public class PlayerStatusEffects : MonoBehaviour
         HealthRegenModifiers = new Dictionary<string, float>();
         MovementModifiers = new Dictionary<string, float>();
         DamageModifiers = new Dictionary<string, float>();
-        ClickDamangeModifiers = new Dictionary<string, float>();
-        ProjectileDamageModifiers = new Dictionary<string, float>();
-        BeamDamageModifiers = new Dictionary<string, float>();
-        AuraDamageModifiers = new Dictionary<string, float>();
+        FireRateModifiers = new Dictionary<string, float>();
+        ProjectileSizeModifiers = new Dictionary<string, float>();
+        ProjectileSpeedModifiers = new Dictionary<string, float>();
+        ProjectilePierceModifiers = new Dictionary<string, float>();
+        ProjectileCountModifiers = new Dictionary<string, float>();
+        ProjectileLifeSpanModifiers = new Dictionary<string, float>();
     }
 
     public void AddStatusEffect(VirusID virus, Slots slot)
@@ -62,25 +66,35 @@ public class PlayerStatusEffects : MonoBehaviour
             DamageModifiers.Add(virusSlot, effect.DamageModifier);
             RecalculateDamage(virus, slot);
         }
-        if (effect.ClickDamangeModifier != 0)
+        if (effect.FireRateModifier != 0)
         {
-            ClickDamangeModifiers.Add(virusSlot, effect.ClickDamangeModifier);
-            RecalculateClickDamage(virus, slot);
+            FireRateModifiers.Add(virusSlot, effect.FireRateModifier);
+            RecalculateFireRate(virus, slot);
         }
-        if (effect.ProjectileDamageModifier != 0)
+        if (effect.ProjectileSizeModifier != 0)
         {
-            ProjectileDamageModifiers.Add(virusSlot, effect.ProjectileDamageModifier);
-            RecalculateProjectileDamage(virus, slot);
+            ProjectileSizeModifiers.Add(virusSlot, effect.ProjectileSizeModifier);
+            RecalculateProjSize(virus, slot);
         }
-        if (effect.BeamDamageModifier != 0)
+        if (effect.ProjectileSpeedModifier != 0)
         {
-            BeamDamageModifiers.Add(virusSlot, effect.BeamDamageModifier);
-            RecalculateBeamDamage(virus, slot);
+            ProjectileSpeedModifiers.Add(virusSlot, effect.ProjectileSpeedModifier);
+            RecalculateProjSpeed(virus, slot);
         }
-        if (effect.AuraDamageModifier != 0)
+        if (effect.ProjectilePierceModifier != 0)
         {
-            AuraDamageModifiers.Add(virusSlot, effect.AuraDamageModifier);
-            RecalculateAuraDamage(virus, slot);
+            ProjectilePierceModifiers.Add(virusSlot, effect.ProjectilePierceModifier);
+            RecalculateProjPierce(virus, slot);
+        }
+        if (effect.ProjectileCountModifier != 0)
+        {
+            ProjectileCountModifiers.Add(virusSlot, effect.ProjectileCountModifier);
+            RecalculateProjCount(virus, slot);
+        }
+        if (effect.ProjectileLifeSpanModifier != 0)
+        {
+            ProjectileLifeSpanModifiers.Add(virusSlot, effect.ProjectileLifeSpanModifier);
+            RecalculateProjLifeSpan(virus, slot);
         }
     }
 
@@ -110,25 +124,35 @@ public class PlayerStatusEffects : MonoBehaviour
             DamageModifiers.Remove(virusSlot);
             RecalculateDamage(virus, slot);
         }
-        if (effect.ClickDamangeModifier != 0)
+        if (effect.FireRateModifier != 0)
         {
-            ClickDamangeModifiers.Remove(virusSlot);
-            RecalculateClickDamage(virus, slot);
+            FireRateModifiers.Remove(virusSlot);
+            RecalculateFireRate(virus, slot);
         }
-        if (effect.ProjectileDamageModifier != 0)
+        if (effect.ProjectileSizeModifier != 0)
         {
-            ProjectileDamageModifiers.Remove(virusSlot);
-            RecalculateProjectileDamage(virus, slot);
+            ProjectileSizeModifiers.Remove(virusSlot);
+            RecalculateProjSize(virus, slot);
         }
-        if (effect.BeamDamageModifier != 0)
+        if (effect.ProjectileSpeedModifier != 0)
         {
-            BeamDamageModifiers.Remove(virusSlot);
-            RecalculateBeamDamage(virus, slot);
+            ProjectileSpeedModifiers.Remove(virusSlot);
+            RecalculateProjSpeed(virus, slot);
         }
-        if (effect.AuraDamageModifier != 0)
+        if (effect.ProjectilePierceModifier != 0)
         {
-            AuraDamageModifiers.Remove(virusSlot);
-            RecalculateAuraDamage(virus, slot);
+            ProjectilePierceModifiers.Remove(virusSlot);
+            RecalculateProjPierce(virus, slot);
+        }
+        if (effect.ProjectileCountModifier != 0)
+        {
+            ProjectileCountModifiers.Remove(virusSlot);
+            RecalculateProjCount(virus, slot);
+        }
+        if (effect.ProjectileLifeSpanModifier != 0)
+        {
+            ProjectileLifeSpanModifiers.Remove(virusSlot);
+            RecalculateProjLifeSpan(virus, slot);
         }
     }
 
@@ -155,7 +179,7 @@ public class PlayerStatusEffects : MonoBehaviour
     void RecalculateHealthRegen(VirusID virus, Slots slot)
     {
         float healthRegen = GetComponent<PlayerHealth>().GetBaseMaxHealthRegen();
-        foreach (KeyValuePair<string, float> entry in HealthModifiers)
+        foreach (KeyValuePair<string, float> entry in HealthRegenModifiers)
         {
             float stageMod = 1.0f;
             float mod = entry.Value;
@@ -175,7 +199,7 @@ public class PlayerStatusEffects : MonoBehaviour
     void RecalculateMovement(VirusID virus, Slots slot)
     {
         float speed = GetComponent<PlayerMove>().GetBaseMaxHealthRegen();
-        foreach (KeyValuePair<string, float> entry in HealthModifiers)
+        foreach (KeyValuePair<string, float> entry in MovementModifiers)
         {
             float stageMod = 1.0f;
             float mod = entry.Value;
@@ -194,8 +218,8 @@ public class PlayerStatusEffects : MonoBehaviour
 
     void RecalculateDamage(VirusID virus, Slots slot)
     {
-        float dmg = GetComponent<PlayerAttack>().GetBaseAttack();
-        foreach (KeyValuePair<string, float> entry in HealthModifiers)
+        float dmg = GetComponent<PlayerShoot>().GetBaseDamage();
+        foreach (KeyValuePair<string, float> entry in DamageModifiers)
         {
             float stageMod = 1.0f;
             float mod = entry.Value;
@@ -204,18 +228,18 @@ public class PlayerStatusEffects : MonoBehaviour
             if (v != null)
             {
                 stageMod = virusObj.Stages[v.CurrentStage].Multiplier;
-                Debug.Log("Attack: " + dmg + " | AttackMod: " + mod + " | StageMod: " + stageMod);
+                Debug.Log("Damage: " + dmg + " | DamageMod: " + mod + " | StageMod: " + stageMod);
             }
             
             dmg += mod * stageMod;
         }
-        GetComponent<PlayerAttack>().SetNewAttack(dmg);
+        GetComponent<PlayerShoot>().SetNewDamage(dmg);
     }
 
-    void RecalculateClickDamage(VirusID virus, Slots slot)
+    void RecalculateFireRate(VirusID virus, Slots slot)
     {
-        float dmg = GetComponent<PlayerAttack>().GetBaseClickAttack();
-        foreach (KeyValuePair<string, float> entry in HealthModifiers)
+        float rate = GetComponent<PlayerShoot>().GetBaseFireRate();
+        foreach (KeyValuePair<string, float> entry in FireRateModifiers)
         {
             float stageMod = 1.0f;
             float mod = entry.Value;
@@ -224,18 +248,18 @@ public class PlayerStatusEffects : MonoBehaviour
             if (v != null)
             {
                 stageMod = virusObj.Stages[v.CurrentStage].Multiplier;
-                Debug.Log("Click Attack: " + dmg + " | ClickMod: " + mod + " | StageMod: " + stageMod);
+                Debug.Log("FireRate: " + rate + " | FireRateMod: " + mod + " | StageMod: " + stageMod);
             }
             
-            dmg += mod * stageMod;
+            rate += mod * stageMod;
         }
-        GetComponent<PlayerAttack>().SetNewClickAttack(dmg);
+        GetComponent<PlayerShoot>().SetNewFireRate(rate);
     }
 
-    void RecalculateProjectileDamage(VirusID virus, Slots slot)
+    void RecalculateProjSize(VirusID virus, Slots slot)
     {
-        float dmg = GetComponent<PlayerAttack>().GetBaseProjectileAttack();
-        foreach (KeyValuePair<string, float> entry in HealthModifiers)
+        float size = GetComponent<PlayerShoot>().GetBaseProjectileSize();
+        foreach (KeyValuePair<string, float> entry in ProjectileSizeModifiers)
         {
             float stageMod = 1.0f;
             float mod = entry.Value;
@@ -244,18 +268,18 @@ public class PlayerStatusEffects : MonoBehaviour
             if (v != null)
             {
                 stageMod = virusObj.Stages[v.CurrentStage].Multiplier;
-                Debug.Log("Projectile Attack: " + dmg + " | ProjectileMod: " + mod + " | StageMod: " + stageMod);
+                Debug.Log("ProjSize: " + size + " | ProjSizeMod: " + mod + " | StageMod: " + stageMod);
             }
             
-            dmg += mod * stageMod;
+            size += mod * stageMod;
         }
-        GetComponent<PlayerAttack>().SetNewProjectileAttack(dmg);
+        GetComponent<PlayerShoot>().SetNewProjectileSize(size);
     }
 
-    void RecalculateBeamDamage(VirusID virus, Slots slot)
+    void RecalculateProjSpeed(VirusID virus, Slots slot)
     {
-        float dmg = GetComponent<PlayerAttack>().GetBaseBeamAttack();
-        foreach (KeyValuePair<string, float> entry in HealthModifiers)
+        float speed = GetComponent<PlayerShoot>().GetBaseProjectileSpeed();
+        foreach (KeyValuePair<string, float> entry in ProjectileSpeedModifiers)
         {
             float stageMod = 1.0f;
             float mod = entry.Value;
@@ -264,18 +288,18 @@ public class PlayerStatusEffects : MonoBehaviour
             if (v != null)
             {
                 stageMod = virusObj.Stages[v.CurrentStage].Multiplier;
-                Debug.Log("Beam Attack: " + dmg + " | BeamMod: " + mod + " | StageMod: " + stageMod);
+                Debug.Log("ProjSpeed: " + speed + " | ProjSpeedMod: " + mod + " | StageMod: " + stageMod);
             }
             
-            dmg += mod * stageMod;
+            speed += mod * stageMod;
         }
-        GetComponent<PlayerAttack>().SetNewBeamAttack(dmg);
+        GetComponent<PlayerShoot>().SetNewProjectileSpeed(speed);
     }
 
-    void RecalculateAuraDamage(VirusID virus, Slots slot)
+    void RecalculateProjPierce(VirusID virus, Slots slot)
     {
-        float dmg = GetComponent<PlayerAttack>().GetBaseAuraAttack();
-        foreach (KeyValuePair<string, float> entry in HealthModifiers)
+        float pierce = GetComponent<PlayerShoot>().GetBaseProjectilePierce();
+        foreach (KeyValuePair<string, float> entry in ProjectilePierceModifiers)
         {
             float stageMod = 1.0f;
             float mod = entry.Value;
@@ -284,11 +308,51 @@ public class PlayerStatusEffects : MonoBehaviour
             if (v != null)
             {
                 stageMod = virusObj.Stages[v.CurrentStage].Multiplier;
-                Debug.Log("Aura Attack: " + dmg + " | AuraMod: " + mod + " | StageMod: " + stageMod);
+                Debug.Log("ProjPierce: " + pierce + " | ProjPierceMod: " + mod + " | StageMod: " + stageMod);
             }
             
-            dmg += mod * stageMod;
+            pierce += mod * stageMod;
         }
-        GetComponent<PlayerAttack>().SetNewAuraAttack(dmg);
+        GetComponent<PlayerShoot>().SetNewProjectilePierce(pierce);
+    }
+
+    void RecalculateProjCount(VirusID virus, Slots slot)
+    {
+        float count = GetComponent<PlayerShoot>().GetBaseProjectileCount();
+        foreach (KeyValuePair<string, float> entry in ProjectileCountModifiers)
+        {
+            float stageMod = 1.0f;
+            float mod = entry.Value;
+            VirusObject virusObj = GameManager.Instance.GetVirusObject((int)virus);
+            Virus v = GetComponent<PlayerViruses>().FindVirus(virus, slot);
+            if (v != null)
+            {
+                stageMod = virusObj.Stages[v.CurrentStage].Multiplier;
+                Debug.Log("ProjCount: " + count + " | ProjCountMod: " + mod + " | StageMod: " + stageMod);
+            }
+            
+            count += mod * stageMod;
+        }
+        GetComponent<PlayerShoot>().SetNewProjectileCount(count);
+    }
+
+    void RecalculateProjLifeSpan(VirusID virus, Slots slot)
+    {
+        float span = GetComponent<PlayerShoot>().GetBaseProjectileLifeSpan();
+        foreach (KeyValuePair<string, float> entry in ProjectileLifeSpanModifiers)
+        {
+            float stageMod = 1.0f;
+            float mod = entry.Value;
+            VirusObject virusObj = GameManager.Instance.GetVirusObject((int)virus);
+            Virus v = GetComponent<PlayerViruses>().FindVirus(virus, slot);
+            if (v != null)
+            {
+                stageMod = virusObj.Stages[v.CurrentStage].Multiplier;
+                Debug.Log("ProjLifeSpan: " + span + " | ProjLifeSpanMod: " + mod + " | StageMod: " + stageMod);
+            }
+            
+            span += mod * stageMod;
+        }
+        GetComponent<PlayerShoot>().SetNewProjectileLifeSpan(span);
     }
 }
