@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float MaxHealth;
-    [SerializeField] float Points;
+    [SerializeField] int Points;
     [SerializeField] private ParticleSystem DeathAnim;
     float CurrentHealth;
 
@@ -24,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
         if (CurrentHealth <= 0.0f)
         {
             GameObject explode = Instantiate(DeathAnim.gameObject, transform.position, Quaternion.identity);
+            GameManager.Instance.AddScore(Points);
             Destroy(explode, 1f);
             Destroy(gameObject); 
         }

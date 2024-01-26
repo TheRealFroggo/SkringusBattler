@@ -75,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
 
     void PlayerDied()
     {
-        //Handle Player death and Restart game.
+        GameManager.Instance.EndGame();
+        Destroy(gameObject);
     }
 }

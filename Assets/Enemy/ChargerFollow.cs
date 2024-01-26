@@ -24,21 +24,22 @@ public class ChargerFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (nextChargeTime < Time.time)
+        if (_target != null)
         {
-            LookAt2D(transform, _target.transform.position);
-            _lockOn = true;
-            _destination = _target.transform.position + (_target.transform.position - transform.position) * overshoot;
-            nextChargeTime = Time.time + chargeRate;    
-        }
-        
-        if (_lockOn)
-        {
-            if (Vector2.Distance(transform.position, _destination) > stopDistance)
-                transform.position = Vector2.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
-            else
+            if (nextChargeTime < Time.time)
             {
-                _lockOn = false;
+                LookAt2D(transform, _target.transform.position);
+                _lockOn = true;
+                _destination = _target.transform.position + (_target.transform.position - transform.position) * overshoot;
+                nextChargeTime = Time.time + chargeRate;    
+            }
+        
+            if (_lockOn)
+            {
+                if (Vector2.Distance(transform.position, _destination) > stopDistance)
+                    transform.position = Vector2.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
+                else
+                    _lockOn = false;
             }
         }
     }

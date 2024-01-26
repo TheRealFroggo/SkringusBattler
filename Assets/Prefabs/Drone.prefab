@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
-  Points: 0
+  Points: 1
   DeathAnim: {fileID: 7951919278807999414, guid: 80b5dc4bae0e0dd4f915c6f23561be85, type: 3}
 --- !u!114 &210851655205883425
 MonoBehaviour:

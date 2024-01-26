@@ -21,14 +21,17 @@ public class BulletMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_destSet)
+        if (_target != null)
         {
-            _destination = _target.transform.position + (_target.transform.position - transform.position) * 10;
-            LookAt2D(transform, _destination);
-            _destSet = true;
-            Destroy(gameObject,_decayTime);
+            if (!_destSet)
+            {
+                _destination = _target.transform.position + (_target.transform.position - transform.position) * 10;
+                LookAt2D(transform, _destination);
+                _destSet = true;
+                Destroy(gameObject,_decayTime);
+            }
+            transform.position = Vector2.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
         }
-        transform.position = Vector2.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
     }
     
     private static void LookAt2D(Transform transform, Vector2 target)
