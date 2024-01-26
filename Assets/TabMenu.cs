@@ -7,6 +7,7 @@ using UnityEngine;
 public class TabMenu : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera vcam;
+    [SerializeField] GameObject UI;
     [SerializeField] private float camDist = 4f;
     [SerializeField] private float zoomAmount = 0.25f;
     [SerializeField] private float slowAmount = 0f;
@@ -27,7 +28,7 @@ public class TabMenu : MonoBehaviour
         vcam.m_Lens.OrthographicSize = isSlow ? zoomAmount * camDist : camDist;
         composer.m_SoftZoneWidth = isSlow ? 0f : 0.8f;
         composer.m_SoftZoneHeight = isSlow ? 0f : 0.8f;
+        UI.SetActive(isSlow);
+        GameManager.Instance.player.GetComponent<PlayerShoot>().enabled = !isSlow;
     }
-    
-    
 }
