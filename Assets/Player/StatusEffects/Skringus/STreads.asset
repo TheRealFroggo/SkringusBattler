@@ -15,9 +15,11 @@ MonoBehaviour:
   Description: 
   HealthModifier: 0
   HealthRegenModifier: 0
-  MovementModifier: 0
-  DamageModifier: 0
-  ClickDamangeModifier: 0
-  ProjectileDamageModifier: 0
-  BeamDamageModifier: 0
-  AuraDamageModifier: 0
+  MovementModifier: -0.25
+  DamageModifier: 5
+  FireRateModifier: 0.1
+  ProjectileSizeModifier: 0.5
+  ProjectileSpeedModifier: 0
+  ProjectilePierceModifier: 0
+  ProjectileCountModifier: 0
+  ProjectileLifeSpanModifier: 0

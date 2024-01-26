@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7697707659988565317}
   - component: {fileID: 1740501986566989778}
   - component: {fileID: -2988939217723780074}
+  - component: {fileID: -958611184991076219}
   m_Layer: 0
   m_Name: Charger
   m_TagString: Enemy
@@ -127,9 +128,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9e201494edf6b49aae14e8b5dcb236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 5
   Points: 0
   DeathAnim: {fileID: 7951919278807999414, guid: 80b5dc4bae0e0dd4f915c6f23561be85, type: 3}
+--- !u!114 &-958611184991076219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6687909221309634211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ca4f302810ceb41b4d5f22a6d7e653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 6
 --- !u!1 &9080562726553526651
 GameObject:
   m_ObjectHideFlags: 0

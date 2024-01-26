@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: BHead
   m_EditorClassIdentifier: 
   Description: 
-  HealthModifier: 10
-  HealthRegenModifier: 10
-  MovementModifier: 10
-  DamageModifier: 10
-  ClickDamangeModifier: 10
-  ProjectileDamageModifier: 10
-  BeamDamageModifier: 10
-  AuraDamageModifier: 10
+  HealthModifier: 5
+  HealthRegenModifier: 0
+  MovementModifier: 0
+  DamageModifier: 0
+  FireRateModifier: 0
+  ProjectileSizeModifier: 0
+  ProjectileSpeedModifier: 0
+  ProjectilePierceModifier: 0
+  ProjectileCountModifier: 0
+  ProjectileLifeSpanModifier: 0

@@ -10,6 +10,7 @@ using UnityEditorInternal;
 
 public class GameManager : MonoBehaviour
 {
+    int Score;
     public GameObject player;
     private static GameManager _instance;
     [SerializeField] private List<VirusObject> VirusObjectsList;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
-        //Debug.Log(_instance.name);
+        Score = 0;
     }
 
     public VirusObject GetVirusObject(int id)
@@ -44,5 +45,10 @@ public class GameManager : MonoBehaviour
     public StatusEffectData GetStatusEffect(string slot)
     {
         return StatusDictionary[slot];
+    }
+
+    public void AddScore(int i)
+    {
+        Score += i;
     }
 }

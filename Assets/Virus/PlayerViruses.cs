@@ -131,6 +131,22 @@ public class PlayerViruses : MonoBehaviour
             }
         return null;
     }
+
+    public void AddRandomVirus()
+    {
+        VirusID virus = (VirusID)Random.Range(0, 3);
+        Slots slot = (Slots)Random.Range(0, 5);
+
+        bool isExist = false;
+        foreach (Virus v in Viruses)
+        {
+            if (virus == v.CurrentVirus.GetVirusID() && slot == v.CurrentSlot)
+                isExist = true;
+        }
+
+        if(!isExist)
+            AddVirus(virus, slot);
+    }
 }
 
 [System.Serializable]

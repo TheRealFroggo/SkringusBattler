@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3231172088061874487}
   - component: {fileID: 3894729294622047766}
   - component: {fileID: 1256173887328691213}
+  - component: {fileID: -2586335869999229455}
   m_Layer: 0
   m_Name: ShooterBullet
   m_TagString: Untagged
@@ -93,6 +94,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   _decayTime: 2
+--- !u!114 &-2586335869999229455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7307873375468000865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ca4f302810ceb41b4d5f22a6d7e653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 5
 --- !u!1 &7699037108117593014
 GameObject:
   m_ObjectHideFlags: 0

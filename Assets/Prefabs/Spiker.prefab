@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6371872047068408211}
   - component: {fileID: 4427013080993956861}
   - component: {fileID: 5044074423294859917}
+  - component: {fileID: -208479288480309597}
   m_Layer: 0
   m_Name: Spiker
   m_TagString: Enemy
@@ -130,9 +131,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9e201494edf6b49aae14e8b5dcb236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 25
   Points: 0
   DeathAnim: {fileID: 7951919278807999414, guid: 80b5dc4bae0e0dd4f915c6f23561be85, type: 3}
+--- !u!114 &-208479288480309597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280176140067359319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ca4f302810ceb41b4d5f22a6d7e653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 20
 --- !u!1 &5821581363754986926
 GameObject:
   m_ObjectHideFlags: 0

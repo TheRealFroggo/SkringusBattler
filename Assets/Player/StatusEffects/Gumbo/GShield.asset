@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: GShield
   m_EditorClassIdentifier: 
   Description: 
-  HealthModifier: 0
-  HealthRegenModifier: 0
-  MovementModifier: 0
+  HealthModifier: -5
+  HealthRegenModifier: 1.5
+  MovementModifier: -0.25
   DamageModifier: 0
-  ClickDamangeModifier: 0
-  ProjectileDamageModifier: 0
-  BeamDamageModifier: 0
-  AuraDamageModifier: 0
+  FireRateModifier: 0
+  ProjectileSizeModifier: 0
+  ProjectileSpeedModifier: 0
+  ProjectilePierceModifier: 0
+  ProjectileCountModifier: 0
+  ProjectileLifeSpanModifier: 0

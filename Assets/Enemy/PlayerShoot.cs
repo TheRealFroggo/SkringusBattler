@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    [Header("Base Stats")]
     [SerializeField] GameObject playerBulletPrefab;
     [SerializeField] float BaseDamage;
     [SerializeField] float BaseFireRate;
@@ -14,13 +15,14 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] int BaseProjectileCount;
     [SerializeField] float BaseProjectileLifeSpan;
 
-    float CurrentDamage;
-    float CurrentFireRate;
-    float CurrentProjectileSize;
-    float CurrentProjectileSpeed;
-    int CurrentProjectilePierce;
-    int CurrentProjectileCount;
-    float CurrentProjectileLifeSpan;
+    [Header("Current Stats")]
+    [SerializeField] float CurrentDamage;
+    [SerializeField] float CurrentFireRate;
+    [SerializeField] float CurrentProjectileSize;
+    [SerializeField] float CurrentProjectileSpeed;
+    [SerializeField] int CurrentProjectilePierce;
+    [SerializeField] int CurrentProjectileCount;
+    [SerializeField] float CurrentProjectileLifeSpan;
     private float _nextFire = 0;
 
     void Awake()

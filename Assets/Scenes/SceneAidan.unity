@@ -84750,7 +84750,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4362942254988587258, guid: f7b47d4e9ed739243ba6bf1b6bc62483, type: 3}
       propertyPath: BaseDamage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4362942254988587258, guid: f7b47d4e9ed739243ba6bf1b6bc62483, type: 3}
       propertyPath: BaseFireRate
@@ -84766,7 +84766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4362942254988587258, guid: f7b47d4e9ed739243ba6bf1b6bc62483, type: 3}
       propertyPath: BaseProjectileSpeed
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4362942254988587258, guid: f7b47d4e9ed739243ba6bf1b6bc62483, type: 3}
       propertyPath: BaseProjectilePierce
