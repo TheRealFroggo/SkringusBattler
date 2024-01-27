@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &518771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 73102599325954350, guid: 27dc5c4c501aec342a28403127556919, type: 3}
+  m_PrefabInstance: {fileID: 296257170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c272d7893059f724e8c3b31024553268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &245958671
 GameObject:
   m_ObjectHideFlags: 0
@@ -84432,6 +84443,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7421261275323140326, guid: 968cdf48555a9c0419c376be5de8d182, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 518771}
+    - target: {fileID: 7421261275323140326, guid: 968cdf48555a9c0419c376be5de8d182, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -108422,7 +108441,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -108466,7 +108485,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453396118}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -108484,7 +108503,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!1001 &660216896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108601,7 +108620,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 343005771101836424, guid: 5c6c20c7702a683469c6653278196a33, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 5c6c20c7702a683469c6653278196a33, type: 3}
 --- !u!1 &957976830 stripped
 GameObject:

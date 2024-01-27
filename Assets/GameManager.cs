@@ -67,6 +67,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene("SceneAidan");
+        SceneManager.LoadScene("SceneMatt");
     }
 }
