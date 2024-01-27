@@ -15,11 +15,11 @@ public class PlayerViruses : MonoBehaviour
     void Start()
     {
         //Add a random Virus to the Body
-        VirusID startingBodyVirus = (VirusID)Random.Range(0, 3);
+        VirusID startingBodyVirus = (VirusID)Random.Range(1, 4);
         AddVirus(startingBodyVirus, Slots.BODY);
 
         //Add another random virus somewhere else
-        VirusID startingRandVirus = (VirusID)Random.Range(0, 3);
+        VirusID startingRandVirus = (VirusID)Random.Range(1, 4);
         Slots startingSlot = (Slots)Random.Range(0, 5);
         while (startingSlot == Slots.BODY)
             startingSlot = (Slots)Random.Range(0, 5);
@@ -137,7 +137,7 @@ public class PlayerViruses : MonoBehaviour
     {
         if (VirusChanceDamage >= Random.Range(1, 100))
         {
-            VirusID virus = (VirusID)Random.Range(0, 3);
+            VirusID virus = (VirusID)Random.Range(1, 4);
             Slots slot = (Slots)Random.Range(0, 5);
 
             bool isExist = false;

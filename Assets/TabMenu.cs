@@ -29,6 +29,7 @@ public class TabMenu : MonoBehaviour
         composer.m_SoftZoneWidth = isSlow ? 0f : 0.8f;
         composer.m_SoftZoneHeight = isSlow ? 0f : 0.8f;
         UI.SetActive(isSlow);
-        GameManager.Instance.player.GetComponent<PlayerShoot>().enabled = !isSlow;
+        if (GameManager.Instance.player != null)
+            GameManager.Instance.player.GetComponent<PlayerShoot>().enabled = !isSlow;
     }
 }
